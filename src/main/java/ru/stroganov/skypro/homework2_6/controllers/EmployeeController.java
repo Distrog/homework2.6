@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.stroganov.skypro.homework2_6.models.Employee;
 import ru.stroganov.skypro.homework2_6.services.EmployeeServiceImp;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -17,25 +19,25 @@ public class EmployeeController {
     }
 
     @GetMapping("/add")
-    public String add(@RequestParam("firstName") String firstName,
+    public Employee add(@RequestParam("firstName") String firstName,
                       @RequestParam("lastName") String lastName) {
-        return employeeService.add(new Employee(firstName, lastName)).toString();
+        return employeeService.add(new Employee(firstName, lastName));
     }
 
     @GetMapping("/remove")
-    public String remove(@RequestParam("firstName") String firstName,
+    public Employee remove(@RequestParam("firstName") String firstName,
         @RequestParam("lastName") String lastName){
-        return employeeService.remove(new Employee(firstName,lastName)).toString();
+        return employeeService.remove(new Employee(firstName,lastName));
     }
 
     @GetMapping("/find")
-    public String find(@RequestParam("firstName") String firstName,
+    public Employee find(@RequestParam("firstName") String firstName,
                        @RequestParam("lastName") String lastName){
-        return employeeService.find(new Employee(firstName,lastName)).toString();
+        return employeeService.find(new Employee(firstName,lastName));
     }
 
     @GetMapping("/info")
-    public String info(){
+    public List<Employee> info(){
         return employeeService.info();
     }
 }

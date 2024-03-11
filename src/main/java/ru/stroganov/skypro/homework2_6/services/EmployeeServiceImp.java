@@ -50,7 +50,7 @@ public class EmployeeServiceImp implements EmployeeService {
     }
 
     @Override
-    public String info() {
-        return employees.toString();
+    public List<Employee> info() {
+        return employees;
     }
 }

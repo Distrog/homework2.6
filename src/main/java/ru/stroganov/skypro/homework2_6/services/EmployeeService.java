@@ -2,6 +2,8 @@ package ru.stroganov.skypro.homework2_6.services;
 
 import ru.stroganov.skypro.homework2_6.models.Employee;
 
+import java.util.List;
+
 public interface EmployeeService {
     Employee add(Employee employee);
 
@@ -9,5 +11,5 @@ public interface EmployeeService {
 
     Employee find(Employee employee);
 
-    String info();
+    List<Employee> info();
 }
